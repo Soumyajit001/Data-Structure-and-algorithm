@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selectionSort(vector<int>&arr,int n){
+void selectionSort(vector<int> &arr,int n){
     
     for(int i=0; i<n-1; i++){
         int minIndex = i;
@@ -14,17 +14,17 @@ void selectionSort(vector<int>&arr,int n){
         swap(arr[minIndex],arr[i]);
     }
 }
-void printArray(int arr[], int n)   //size = n
-{
+
+void printElems(vector <int> arr) {
     int i;
-    for (i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-        cout << endl;
-    }
+    int n = arr.size();
+    for (i = 0; i < n; i++)
+        cout << arr[i] << "  ";
 }
 
 int main(){
 
+    vector<int> v;
     int arr[100],n,i;
     
     cout << "Enter size of Array: ";
@@ -33,31 +33,13 @@ int main(){
     cout << "Enter the array: ";
     for(i=0; i<n; i++){
         cin >> arr[i];
+
+        v.push_back(arr[i]);
     }
 
-    selectionSort(arr, n);
-    cout << "The sorted array is ";
-    printArray(arr, n);
+    selectionSort(v,n);
+    cout << "The sorted array is : " ;
+    printElems(v);
 
     return 0;
 }
-
-/* 
- 29,72,98,13,87,66,52,51,36  -- 13 is smallest, 1st swap 13 & 29
-
- 13,72,98,29,87,66,52,51,36  -- 29 is smallest, 2nd swap 29 & 72
-
- 13,29,98,72,87,66,52,51,36  -- 36 is smallest, 3rd swap 36 & 98
-
- 13,29,36,72,87,66,52,51,98  -- 51 is smallest, 4th swap 51 & 72
-
- 13,29,36,51,87,66,52,72,98  -- 52 is smallest, 5th swap 52 & 87
-
- 13,29,36,51,52,66,87,72,98  -- 66 is smallest, no swapping
-
- 13,29,36,51,52,66,87,72,98 -- 72 is smallest, 6th swap 72 & 87
-
- 13,29,36,51,52,66,72,87,98 -- 87 is smallest, no swapping
-
- 13,29,36,51,52,66,72,87,98 -- sorting completed
-*/ 
